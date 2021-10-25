@@ -3,30 +3,22 @@ import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
 
 class Movies extends Component {
-    state = { 
-        movies: [
-            {
-                imdbID: 'tt3896198',
-                title: "Guardians of the Galaxy Vol. 2",
-                year: 2017,
-                poster: "https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg"
 
-            },
-            {
-                imdbID: 'tt0068646',
-                title: "The Godfather",
-                year: 1972,
-                poster: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
-
-            }
-        ]
+    send=(data)=>{
+        console.log(data)
+        this.props.addFilmsToList(data)
     }
+
     render() { 
+        console.log(this.props)
         return ( 
             <ul className="movies">
-                {this.state.movies.map((movie) => (
+                
+                {this.props.movies.map((movie) => (
                     <li className="movies__item" key={movie.imdbID}>
-                        <MovieItem {...movie} />
+                        <MovieItem 
+                            {...movie} 
+                            send={this.props.addFilmsToList}/>
                     </li>
                 ))}
             </ul>

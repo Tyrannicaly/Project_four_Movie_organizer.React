@@ -4,12 +4,24 @@ import './SearchBox.css';
 class SearchBox extends Component {
     state = {
         searchLine: ''
+
+        
     }
     searchLineChangeHandler = (e) => {
         this.setState({ searchLine: e.target.value });
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        fetch(`http://www.omdbapi.com/?s=${this.state.searchLine}&apikey=3ba9ced8`)
+        .then((res)=> res.json())
+        .then((data)=>{
+            console.log(data);
+
+            this.props.search(data.Search)
+            
+         
+        });
+
     }
     render() {
         const { searchLine } = this.state;

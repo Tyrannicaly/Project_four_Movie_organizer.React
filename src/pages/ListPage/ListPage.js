@@ -8,12 +8,23 @@ class ListPage extends Component {
         ]
     }
     componentDidMount() {
-        const id = this.props.match.params;
+        console.log(this.props)
+        const { id } = this.props.match.params;
         console.log(id);
-        // TODO: запрос к сервер на получение списка
-        // TODO: запросы к серверу по всем imdbID
+        fetch("http://www.omdbapi.com/?s=godfather&apikey=3ba9ced8")
+        .then((res)=> res.json())
+        .then((data)=>{
+            console.log(data);
+            const copyMovies =[...this.state.movies, data]
+            this.setState({
+                movies: copyMovies
+            });
+        });
+
     }
     render() { 
+        console.log(this.state)
+        
         return (
             <div className="list-page">
                 <h1 className="list-page__title">Мой список</h1>
