@@ -31,9 +31,17 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
-.li{
+
+.btnDelFromFav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-bottom: 4px;
+}
+
+.btnDelFromFav button {
+    margin: 2px 0px;
+}
+
+.disable {
+    background-color: #d3d3d3;
+    pointer-events: none;
 }
