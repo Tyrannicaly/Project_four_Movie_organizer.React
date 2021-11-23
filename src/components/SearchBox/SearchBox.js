@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './SearchBox.css';
 
 class SearchBox extends Component {
@@ -6,7 +6,7 @@ class SearchBox extends Component {
         searchLine: ''
     }
     searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+        this.setState({searchLine: e.target.value});
     }
     searchBoxSubmitHandler = (e) => {
         e.preventDefault();
@@ -21,17 +21,17 @@ class SearchBox extends Component {
     getFIndMovie = (userSearch) => {
         const apiKey = 'e55ebd0a';
         fetch(`http://www.omdbapi.com/?s=${userSearch}&apikey=${apiKey}`)
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            this.props.fromSearchBox(data.Search)
-        })
+            .then((res) => {
+                return res.json()
+            })
+            .then((data) => {
+                this.props.fromSearchBox(data.Search)
+            })
     }
 
 
     render() {
-        const { searchLine } = this.state;
+        const {searchLine} = this.state;
 
         return (
             <div className="search-box">
@@ -59,5 +59,5 @@ class SearchBox extends Component {
         );
     }
 }
- 
+
 export default SearchBox;

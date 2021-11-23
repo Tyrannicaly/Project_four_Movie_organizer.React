@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
 
 class Movies extends Component {
 
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <ul className="movies">
                 {this.props.movies.map((movie) => (
                     <li className="movies__item" key={movie.imdbID}>
@@ -20,5 +20,5 @@ class Movies extends Component {
         );
     }
 }
- 
+
 export default Movies;
