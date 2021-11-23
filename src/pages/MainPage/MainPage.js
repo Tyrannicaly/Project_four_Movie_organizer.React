@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './MainPage.css';
 import Header from '../../components/Header/Header';
 import SearchBox from '../../components/SearchBox/SearchBox';
@@ -10,9 +10,8 @@ class MainPage extends Component {
     state = {
         favoriteMovie: [],
         movies: []
-    } 
+    }
 
-    
 
     delFromFavList = (imdbID) => {
         const favMov = this.state.favoriteMovie.findIndex((elem) => {
@@ -48,26 +47,27 @@ class MainPage extends Component {
         })
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div className="main-page">
-                <Header />
+                <Header/>
                 <main className="main-page__content">
                     <section className="main-page__main-section">
                         <div className="main-page__search-box">
-                            <SearchBox fromSearchBox={this.fromSearchBox} />
+                            <SearchBox fromSearchBox={this.fromSearchBox}/>
                         </div>
                         <div className="main-page__movies">
-                            <Movies movies={this.state.movies} addFilmsToList={this.addFilmsToList} />
+                            <Movies movies={this.state.movies} addFilmsToList={this.addFilmsToList}/>
                         </div>
                     </section>
                     <aside className="main-page__favorites">
-                        <Favorites getKey={this.props.getKey} favoriteMovie={this.state.favoriteMovie} delFromFavList={this.delFromFavList} />
+                        <Favorites getKey={this.props.getKey} favoriteMovie={this.state.favoriteMovie}
+                                   delFromFavList={this.delFromFavList}/>
                     </aside>
                 </main>
             </div>
         );
     }
 }
- 
+
 export default MainPage;
